@@ -1,0 +1,146 @@
+/* Font Family: Outfit with weights: 300, 400, and 600 */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+:root {
+    /* PRIMARY */
+    --soft-blue: hsl(215, 51%, 70%);
+    --cyan: hsla(178, 100%, 50%, 0.65);
+
+    /* NEUTRAL */
+    --main-background: hsl(217, 54%, 11%); /* very dark blue */
+    --card-background: hsl(216, 50%, 16%); /* another dark blue */
+    --pale-blue-line: hsl(215, 32%, 27%); /* line in card */
+    --white: hsl(0, 0%, 100%);
+}
+
+body {
+    background-color: var(--main-background);
+
+    font-family: "Outfit", sans-serif;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100svh;
+
+    overflow: hidden;
+}
+
+img {
+    width: 100%;    
+    border-radius: 1rem;
+}
+
+h1, .creator .name {
+    color: var(--white);
+    font-weight: 600;
+}
+
+hr {
+    border: 1px solid var(--pale-blue-line);
+}
+
+.card {
+    background-color: var(--card-background);
+
+    padding: 25px;
+    width: 300px;
+
+    box-shadow:  0 2rem 0.45rem 1.25rem hsl(215, 57%, 10%);
+
+    border-radius: 20px;
+}
+
+.img-container {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    display: inline-block;
+}
+
+.img-container .nft {
+    display: block;
+    position: inherit;
+    
+    width: 100%;
+    height: auto;
+}
+
+.img-container::after {
+    content: "";
+    position: absolute;
+    
+    /* adjust the positioning of the area covered*/
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    background-color: var(--cyan); 
+    opacity: 0;
+    transition: opacity 0.3s ease; /* a smooth transition for the overlay */
+    
+    /* centers the eye/view svg */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+}
+
+.img-container:hover::after {
+    opacity: 1; /* makes the effect visible */
+    content: url("./images/icon-view.svg"); /* the eye icon */
+}
+
+.promotion, .creator, .time, .attribution {
+    color: var(--soft-blue);
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.etherium {
+    color: var(--cyan);
+    font-weight: 600;
+}
+
+.time, .etherium {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.time img, .etherium img {
+    width: 16px;
+    margin-right: 8px;
+}
+
+.creator {
+    display: flex;
+    font-size: 16px;
+    align-items: center;
+}
+
+.avatar {
+    width: 12%;
+    margin-right: 20px;
+    border: 1.5px solid white;
+    border-radius: 90px;
+}
+
+.attribution {
+    margin-top: 1rem;
+    font-size: 1rem; text-align: center; 
+}
+
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+    text-decoration: none;
+}
